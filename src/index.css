@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer component {
+  .outline-green {
+    outline: 1px solid var(--green-primary);
+  }
+
+  .gradient-auto-front {
+    background: radial-gradient(53.73% 53.73% at 50.13% 57.14%, rgba(40, 40, 40, 0) 34.37%, var(--bg-secondary) 100%);
+  }
+}
+html {
+  @apply h-full;
+}
+
+body,
+#root {
+  @apply h-max;
+}
+
+@media screen and (max-width: 340px) {
+  body {
+    width: 340px;
+  }
+}
+
+input:checked + div {
+  @apply border-transparent bg-button;
+}
+input:checked + div svg {
+  @apply block;
+}
+
+input[type='radio'] + label {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+input[type='radio'] + label span {
+  transition: background 0.2s, transform 0.2s;
+}
+
+input[type='radio']:checked + label > span:first-of-type {
+  @apply bg-button border-3 border-radio outline-green;
+}
+
+input[type='radio']:checked + label > div > p:last-of-type {
+  @apply text-green-secondary;
+}
+
+input[type='file'] {
+  display: none;
+}
